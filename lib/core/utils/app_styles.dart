@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:delivery_app_task/core/utils/app_colors.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AppStyles {
@@ -95,7 +94,7 @@ abstract class AppStyles {
     fontWeight: FontWeight.w600,
   );
   static TextStyle styleSemiBold20 = TextStyle(
-    color: AppColors.cyanColor,
+    color: AppColors.selectedItemColor,
     fontFamily: 'Poppins',
     fontSize: 20.sp,
     fontWeight: FontWeight.w600,
