@@ -13,62 +13,67 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-      child: Row(
-        children: [
-          Expanded(
-            child: Container(
-              height: 40.h,
-              padding: EdgeInsets.symmetric(horizontal: 12.w),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: AppColors.lightGreyColor.withValues(alpha: 0.5),
+    return Material(
+      elevation: 4,
+      shadowColor: Colors.black.withValues(alpha: (0.1)),
+      color: AppColors.whiteColor,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 30.h),
+        child: Row(
+          children: [
+            Expanded(
+              child: Container(
+                height: 40.h,
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppColors.lightGreyColor.withValues(alpha: 0.5),
+                  ),
+                  borderRadius: BorderRadius.circular(10.r),
                 ),
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              child: Row(
-                children: [
-                  SvgPicture.asset(
-                    Assets.iconsSearch,
-                    width: 13.w,
-                    height: 13.w,
-                  ),
-                  SizedBox(width: 12.w),
-                  Expanded(
-                    child: SearchTextField(),
-                  ),
-                ],
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      Assets.iconsSearch,
+                      width: 13.w,
+                      height: 13.w,
+                    ),
+                    SizedBox(width: 12.w),
+                    Expanded(
+                      child: SearchTextField(),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          SizedBox(width: 30.w),
-          Text(
-            'Inicio',
-            style: AppStyles.styleSemiBold22,
-          ),
-          SizedBox(width: 30.w),
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset(
-                  Assets.iconsNotification,
+            SizedBox(width: 30.w),
+            Text(
+              'Inicio',
+              style: AppStyles.styleSemiBold22,
+            ),
+            SizedBox(width: 30.w),
+            Row(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset(
+                    Assets.iconsNotification,
+                  ),
                 ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset(
-                  Assets.iconsPercentage,
+                IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset(
+                    Assets.iconsPercentage,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(131.h);
+  Size get preferredSize => Size.fromHeight(100.h);
 }

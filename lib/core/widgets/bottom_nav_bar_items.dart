@@ -28,20 +28,21 @@ Widget buildNavIcon({
 
 Widget buildCenterButton({required VoidCallback onTap}) {
   return Positioned(
-    top: -10.h,
+    top: 0.h,
     left: 0,
     right: 0,
     child: GestureDetector(
       onTap: onTap,
       child: Stack(
         alignment: Alignment.center,
+        clipBehavior: Clip.none,
         children: [
           Container(
-            width: 76.w,
-            height: 76.w,
+            width: 90.w,
+            height: 80.h,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.lightGreyColor.withValues(alpha: 0.08),
+              color: AppColors.lightGreyColor.withValues(alpha: 0.06),
             ),
           ),
           Container(
@@ -61,8 +62,8 @@ Widget buildCenterButton({required VoidCallback onTap}) {
             child: Center(
               child: SvgPicture.asset(
                 Assets.iconsBasket,
-                width: 30.w,
-                height: 30.h,
+                width: 20.w,
+                height: 20.h,
                 colorFilter: ColorFilter.mode(
                   AppColors.whiteColor,
                   BlendMode.srcIn,
