@@ -4,11 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductsPopulariesListView extends StatelessWidget {
-  final List<ProductPopularModel> products;
-
   const ProductsPopulariesListView({
     super.key,
-    required this.products,
   });
 
   @override
@@ -18,10 +15,10 @@ class ProductsPopulariesListView extends StatelessWidget {
       child: ListView.builder(
         padding: EdgeInsetsDirectional.zero,
         scrollDirection: Axis.horizontal,
-        itemCount: products.length,
+        itemCount: ProductPopularModel.products.length,
         itemBuilder: (context, index) {
           return ProductPopularItem(
-            productPopularItem: products[index],
+            productPopularItem: ProductPopularModel.products[index],
           );
         },
       ),

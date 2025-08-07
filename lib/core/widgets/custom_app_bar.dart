@@ -6,74 +6,81 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
-    super.key,
-  });
+class CustomSliverAppBar extends StatelessWidget {
+  final int currentIndex;
+
+  const CustomSliverAppBar({super.key, required this.currentIndex});
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    final bool isCartView = currentIndex == 2;
+
+    return SliverAppBar(
+      backgroundColor: AppColors.whiteColor,
+      automaticallyImplyLeading: false,
       elevation: 4,
-      shadowColor: Colors.black.withValues(alpha: (0.1)),
-      color: AppColors.whiteColor,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 30.h),
-        child: Row(
-          children: [
-            Expanded(
-              child: Container(
-                height: 40.h,
-                padding: EdgeInsets.symmetric(horizontal: 12.w),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: AppColors.lightGreyColor.withValues(alpha: 0.5),
+      expandedHeight: 100.h,
+      flexibleSpace: Padding(
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).padding.top + 10.h,
+        ),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
+          color: AppColors.whiteColor,
+          child: isCartView
+              ? Center(
+                  child: Text(
+                    'Carrito',
+                    style: AppStyles.styleSemiBold22,
                   ),
-                  borderRadius: BorderRadius.circular(10.r),
-                ),
-                child: Row(
+                )
+              : Row(
                   children: [
-                    SvgPicture.asset(
-                      Assets.iconsSearch,
-                      width: 13.w,
-                      height: 13.w,
-                    ),
-                    SizedBox(width: 12.w),
                     Expanded(
-                      child: SearchTextField(),
+                      child: Container(
+                        height: 40.h,
+                        padding: EdgeInsets.symmetric(horizontal: 12.w),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: AppColors.lightGreyColor.withOpacity(0.5),
+                          ),
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              Assets.iconsSearch,
+                              width: 13.w,
+                              height: 13.w,
+                            ),
+                            SizedBox(width: 12.w),
+                            Expanded(child: SearchTextField()),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 30.w),
+                    Text(
+                      'Inicio',
+                      style: AppStyles.styleSemiBold22,
+                    ),
+                    SizedBox(width: 30.w),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: SvgPicture.asset(Assets.iconsNotification),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: SvgPicture.asset(Assets.iconsPercentage),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ),
-            ),
-            SizedBox(width: 30.w),
-            Text(
-              'Inicio',
-              style: AppStyles.styleSemiBold22,
-            ),
-            SizedBox(width: 30.w),
-            Row(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    Assets.iconsNotification,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    Assets.iconsPercentage,
-                  ),
-                ),
-              ],
-            ),
-          ],
         ),
       ),
     );
   }
-
-  @override
-  Size get preferredSize => Size.fromHeight(100.h);
 }

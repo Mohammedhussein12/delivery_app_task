@@ -1,5 +1,5 @@
 import 'package:delivery_app_task/core/utils/app_styles.dart';
-import 'package:delivery_app_task/features/search/presentation/screens/search_screen.dart';
+import 'package:delivery_app_task/features/search/presentation/views/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class SearchTextField extends StatelessWidget {

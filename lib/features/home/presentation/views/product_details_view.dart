@@ -1,7 +1,6 @@
 import 'package:delivery_app_task/core/utils/app_colors.dart';
 import 'package:delivery_app_task/core/utils/app_styles.dart';
 import 'package:delivery_app_task/core/widgets/custom_button.dart';
-import 'package:delivery_app_task/features/home/data/models/ingredient_model.dart';
 import 'package:delivery_app_task/features/home/presentation/widgets/ingredients_list_view.dart';
 import 'package:delivery_app_task/generated/assets.dart';
 import 'package:flutter/material.dart';
@@ -106,9 +105,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                               ],
                             ),
                             SizedBox(height: 18.h),
-                            IngredientsListView(
-                              ingredients: IngredientModel.ingredients,
-                            ),
+                            IngredientsListView(),
                             Divider(
                               color: AppColors.lightGreyColor.withValues(
                                 alpha: 0.1,

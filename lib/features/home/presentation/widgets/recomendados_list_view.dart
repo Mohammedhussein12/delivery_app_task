@@ -4,11 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecomendadosListView extends StatelessWidget {
-  final List<RecomendadoModel> recomendados;
-
   const RecomendadosListView({
     super.key,
-    required this.recomendados,
   });
 
   @override
@@ -18,10 +15,10 @@ class RecomendadosListView extends StatelessWidget {
       child: ListView.builder(
         padding: EdgeInsetsDirectional.zero,
         scrollDirection: Axis.horizontal,
-        itemCount: recomendados.length,
+        itemCount: RecomendadoModel.recomendados.length,
         itemBuilder: (context, index) {
           return RecomendadoItem(
-            recomendadoItem: recomendados[index],
+            recomendadoItem: RecomendadoModel.recomendados[index],
           );
         },
       ),

@@ -1,7 +1,5 @@
 import 'package:delivery_app_task/core/utils/app_styles.dart';
-import 'package:delivery_app_task/features/home/data/models/category_model.dart';
-import 'package:delivery_app_task/features/home/data/models/product_popular_model.dart';
-import 'package:delivery_app_task/features/home/data/models/recomendado_model.dart';
+import 'package:delivery_app_task/core/widgets/custom_app_bar.dart';
 import 'package:delivery_app_task/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:delivery_app_task/features/home/presentation/widgets/products_popularies_list_view.dart';
 import 'package:delivery_app_task/features/home/presentation/widgets/recomendados_list_view.dart';
@@ -17,6 +15,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
+        CustomSliverAppBar(
+          currentIndex: 0,
+        ),
         SliverToBoxAdapter(
           child: SizedBox(
             height: 35.h,
@@ -44,9 +45,7 @@ class HomeView extends StatelessWidget {
                 SizedBox(
                   height: 21.h,
                 ),
-                CategoriesListView(
-                  categories: CategoryModel.categories,
-                ),
+                CategoriesListView(),
                 SizedBox(
                   height: 38.h,
                 ),
@@ -57,9 +56,7 @@ class HomeView extends StatelessWidget {
                 SizedBox(
                   height: 23.h,
                 ),
-                ProductsPopulariesListView(
-                  products: ProductPopularModel.products,
-                ),
+                ProductsPopulariesListView(),
                 SizedBox(
                   height: 23.h,
                 ),
@@ -73,9 +70,7 @@ class HomeView extends StatelessWidget {
                 SizedBox(
                   height: 20.h,
                 ),
-                RecomendadosListView(
-                  recomendados: RecomendadoModel.recomendados,
-                ),
+                RecomendadosListView(),
               ],
             ),
           ),

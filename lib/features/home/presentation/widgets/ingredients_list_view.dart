@@ -4,11 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IngredientsListView extends StatelessWidget {
-  final List<IngredientModel> ingredients;
-
   const IngredientsListView({
     super.key,
-    required this.ingredients,
   });
 
   @override
@@ -19,9 +16,9 @@ class IngredientsListView extends StatelessWidget {
         padding: EdgeInsetsDirectional.zero,
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: ingredients.length,
+        itemCount: IngredientModel.ingredients.length,
         itemBuilder: (context, index) {
-          return IngredientItem(ingredient: ingredients[index]);
+          return IngredientItem(ingredient: IngredientModel.ingredients[index]);
         },
       ),
     );

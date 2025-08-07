@@ -1,10 +1,10 @@
 import 'package:delivery_app_task/core/utils/app_colors.dart';
 import 'package:delivery_app_task/core/widgets/bottom_nav_bar_items.dart';
-import 'package:delivery_app_task/core/widgets/custom_app_bar.dart';
-import 'package:delivery_app_task/features/cart/presentation/cart_view.dart';
+import 'package:delivery_app_task/features/Wishlist/presentation/views/wishlist_view.dart';
+import 'package:delivery_app_task/features/cart/presentation/views/cart_view.dart';
 import 'package:delivery_app_task/features/home/presentation/views/home_view.dart';
-import 'package:delivery_app_task/features/profile/presentation/profile_view.dart';
-import 'package:delivery_app_task/features/shop/presentation/shop_view.dart';
+import 'package:delivery_app_task/features/profile/presentation/views/profile_view.dart';
+import 'package:delivery_app_task/features/shop/presentation/views/shop_view.dart';
 import 'package:delivery_app_task/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeView(),
     ShopView(),
     CartView(),
+    WishlistView(),
     ProfileView(),
   ];
 
@@ -30,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.whiteColor.withValues(alpha: 0.95),
-        appBar: CustomAppBar(),
         body: tabs[currentIndex],
         bottomNavigationBar: SizedBox(
           height: 100.h,
@@ -60,7 +60,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       buildNavIcon(
                         icon: Assets.iconsHome,
@@ -68,30 +67,35 @@ class _HomeScreenState extends State<HomeScreen> {
                         currentIndex: currentIndex,
                         onTap: () => setState(() => currentIndex = 0),
                       ),
+                      const Spacer(),
                       buildNavIcon(
                         icon: Assets.iconsShop,
                         index: 1,
                         currentIndex: currentIndex,
                         onTap: () => setState(() => currentIndex = 1),
                       ),
-                      SizedBox(width: 55.w),
-                      buildNavIcon(
-                        icon: Assets.iconsNonSelectedFavourite,
-                        index: 2,
+                      const Spacer(),
+                      buildCenterButton(
                         currentIndex: currentIndex,
+                        index: 2,
                         onTap: () => setState(() => currentIndex = 2),
                       ),
-                      buildProfileIcon(
+                      const Spacer(),
+                      buildNavIcon(
+                        icon: Assets.iconsNonSelectedFavourite,
                         index: 3,
                         currentIndex: currentIndex,
                         onTap: () => setState(() => currentIndex = 3),
                       ),
+                      const Spacer(),
+                      buildProfileIcon(
+                        index: 4,
+                        currentIndex: currentIndex,
+                        onTap: () => setState(() => currentIndex = 4),
+                      ),
                     ],
                   ),
                 ),
-              ),
-              buildCenterButton(
-                onTap: () {},
               ),
             ],
           ),
