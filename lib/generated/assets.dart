@@ -22,6 +22,7 @@ class Assets {
   static const String imagesBigBurgerQueso2 =
       'assets/images/big_burger_queso2.png';
   static const String imagesBurger = 'assets/images/burger.png';
+  static const String imagesBurger2 = 'assets/images/burger2.jpeg';
   static const String imagesBurritos = 'assets/images/burritos.png';
   static const String imagesCebolla = 'assets/images/cebolla.png';
   static const String imagesFrias = 'assets/images/frias.png';
