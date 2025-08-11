@@ -40,13 +40,13 @@ Widget buildCenterButton({
         alignment: Alignment.center,
         children: [
           Positioned(
-            top: -10.h,
+            top: -20.h,
             child: Container(
               width: 90.w,
-              height: 90.w,
+              height: 100.w,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.lightGreyColor.withValues(alpha: 0.05),
+                color: AppColors.lightGreyColor.withValues(alpha: 0.1),
               ),
             ),
           ),
