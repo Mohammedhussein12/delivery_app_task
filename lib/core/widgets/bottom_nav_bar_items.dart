@@ -59,7 +59,7 @@ Widget buildCenterButton({
               boxShadow: [
                 BoxShadow(
                   color: AppColors.primaryColor.withValues(alpha: 0.3),
-                  blurRadius: 8.r,
+                  blurRadius: 9.r,
                   offset: Offset(0, 3),
                 ),
               ],
