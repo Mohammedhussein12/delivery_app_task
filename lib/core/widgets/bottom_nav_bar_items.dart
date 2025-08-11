@@ -33,45 +33,51 @@ Widget buildCenterButton({
 }) {
   return GestureDetector(
     onTap: onTap,
-    child: Stack(
-      alignment: Alignment.center,
-      clipBehavior: Clip.none,
-      children: [
-        Container(
-          width: 90.w,
-          height: 80.h,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: AppColors.lightGreyColor.withValues(alpha: 0.06),
-          ),
-        ),
-        Container(
-          width: 54.w,
-          height: 54.w,
-          decoration: BoxDecoration(
-            color: AppColors.primaryColor,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.primaryColor.withValues(alpha: 0.3),
-                blurRadius: 8.r,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
-          child: Center(
-            child: SvgPicture.asset(
-              Assets.iconsBasket,
-              width: 20.w,
-              height: 20.h,
-              colorFilter: ColorFilter.mode(
-                AppColors.whiteColor,
-                BlendMode.srcIn,
+    child: SizedBox(
+      width: 100.w,
+      height: 100.h,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            top: -10.h,
+            child: Container(
+              width: 90.w,
+              height: 90.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.lightGreyColor.withValues(alpha: 0.05),
               ),
             ),
           ),
-        ),
-      ],
+          Container(
+            width: 54.w,
+            height: 54.w,
+            decoration: BoxDecoration(
+              color: AppColors.primaryColor,
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.primaryColor.withValues(alpha: 0.3),
+                  blurRadius: 9.r,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Center(
+              child: SvgPicture.asset(
+                Assets.iconsBasket,
+                width: 20.w,
+                height: 20.h,
+                colorFilter: ColorFilter.mode(
+                  AppColors.whiteColor,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }

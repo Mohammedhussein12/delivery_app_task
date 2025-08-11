@@ -75,10 +75,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () => setState(() => currentIndex = 1),
                       ),
                       const Spacer(),
-                      buildCenterButton(
-                        currentIndex: currentIndex,
-                        index: 2,
-                        onTap: () => setState(() => currentIndex = 2),
+                      Positioned(
+                        top: -31.h,
+                        child: buildCenterButton(
+                          currentIndex: currentIndex,
+                          index: 2,
+                          onTap: () => setState(() => currentIndex = 2),
+                        ),
                       ),
                       const Spacer(),
                       buildNavIcon(
